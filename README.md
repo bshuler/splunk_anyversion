@@ -17,7 +17,7 @@ Quick Start
 - cd splunk_anyversion
 - vagrant up
 
-This will set up a splunk instance with 5.0.3 by default.
+This will set up a splunk instance with 5.0.4 by default.
 
 if you want a different version, set the SPLUNK_VERSION in setup_splunk.
 

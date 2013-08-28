@@ -26,6 +26,6 @@ Navigate a browser to http://localhost:8000 and enjoy.
 Vagrant Commands
 ----------------
 
-vagrant up
-vagrant destroy -f
+- vagrant up
+- vagrant destroy -f
 

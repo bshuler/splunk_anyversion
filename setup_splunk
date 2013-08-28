@@ -26,6 +26,6 @@ $SPLUNK_HOME/bin/splunk start --accept-license > /dev/null
 $SPLUNK_HOME/bin/splunk edit user $SPLUNK_ADMIN_USERNAME -password $SPLUNK_ADMIN_PASSWORD -role admin -auth $SPLUNK_ADMIN_USERNAME:changeme > /dev/null
 sudo su -c "/opt/splunk/bin/splunk enable boot-start  -user vagrant > /dev/null"
 $SPLUNK_HOME/bin/splunk restart > /dev/null
-#sudo apt-get -y -qq install libwww-perl
+
 echo Vagrant has mapped your Splunk Web interface to http://localhost:8000/
 echo Credentials are $SPLUNK_ADMIN_USERNAME / $SPLUNK_ADMIN_PASSWORD

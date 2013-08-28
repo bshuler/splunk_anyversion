@@ -1,0 +1,41 @@
+SPLUNK_ADMIN_USERNAME=admin
+SPLUNK_ADMIN_PASSWORD=splunk
+
+
+# -------- Dont Change Below This Line -------- #
+
+SPLUNK_HOME=/opt/splunk
+INPUT=/home/vagrant/data/splunk_versions
+OLDIFS=$IFS
+IFS=,
+[ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
+while read myversion mybuild myurl
+do
+	if [ $myversion == $SPLUNK_VERSION ]
+	then
+		build=$mybuild
+		url=$myurl
+	fi
+	allversions=$myversion,\ $allversions
+done < $INPUT
+IFS=$OLDIFS
+
+if [ -z "$url" ]
+	then
+	echo "Version Not Found: $SPLUNK_VERSION"
+	echo "Available Versions:"
+	echo $allversions
+	exit 1
+fi
+
+echo Version: $SPLUNK_VERSION Build: $build URL: $url
+
+if [ -f /home/vagrant/data/install/splunk-$SPLUNK_VERSION-$build-Linux-i686.tgz ]
+  then
+    echo "Install exists."
+  else
+  	echo "Install missing. Downloading."
+  	wget -O /home/vagrant/data/install/splunk-$SPLUNK_VERSION-$build-Linux-i686.tgz $url
+fi
+
+SPLUNK_ENT_INST=splunk-$SPLUNK_VERSION-$build-Linux-i686.tgz

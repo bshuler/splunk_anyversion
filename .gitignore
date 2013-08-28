@@ -1,0 +1,8 @@
+# Ignore Install Files
+*.tgz
+
+# Ignore hidden Vagrant Files
+.vagrant
+
+# Ignore odd mac files
+.DS_Store

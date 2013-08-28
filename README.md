@@ -27,5 +27,6 @@ Vagrant Commands
 ----------------
 
 - vagrant up
+- vagrany ssh
 - vagrant destroy -f
 
